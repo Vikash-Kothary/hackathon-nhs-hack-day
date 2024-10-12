@@ -1,6 +1,6 @@
 init:
 	@python3 -m venv .venv
-	@.venv/bin/pip install -r requirements.txt
+	@.venv/bin/pip install -r src/backend/requirements.txt
 
 run:
-	@.venv/bin/fastapi dev src/nhs_hack_day/main.py
+	@.venv/bin/fastapi dev src/backend/nhs_hack_day/main.py
