@@ -3,6 +3,7 @@ from pydantic import BaseModel
 
 from nhs_hack_day.repositories import user_repository
 from nhs_hack_day.repositories import task_repository
+from nhs_hack_day.repositories import patient_repository
 
 app = FastAPI(
     docs_url="/"
@@ -16,6 +17,7 @@ class User(BaseModel):
 
 class Task(BaseModel):
     task_id: str
+    task_type: str
     name: str
     description: str
 
@@ -46,3 +48,14 @@ def list_tasks():
 def create_new_task(task: Task):
     new_task = task_repository.create_new_task(task)
     return new_task.task_id
+
+
+@app.get("/api/v1/patients")
+def list_patients():
+    return patient_repository.list_patients()
+
+
+@app.post("/api/v1/patients")
+def create_new_patient(patient: Patient):
+    new_patient = patient_repository.create_new_patient(patient)
+    return new_patient.patient_id
