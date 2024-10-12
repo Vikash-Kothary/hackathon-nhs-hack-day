@@ -3,8 +3,7 @@
 users = {}
 
 def list_users():
-    print(users)
-    return users.items()
+    return list(users.values())
 
 def create_new_user(user):
     global users
