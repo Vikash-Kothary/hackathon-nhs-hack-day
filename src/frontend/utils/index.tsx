@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Calendar, CalendarDays, Grid2X2, Inbox } from "lucide-react";
 
 export const primaryNavItems = [
@@ -26,3 +27,8 @@ export const primaryNavItems = [
 ];
 
 export const GET_STARTED_PROJECT_ID = "k97fs8npdxzkr39y5vjcp9kq1d6tycm1";
+
+export const useQuery = (something: {}) => {
+  const [query, setQuery] = useState([])
+  return null;
+}

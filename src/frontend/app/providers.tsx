@@ -17,7 +17,7 @@ function useAuth() {
   return useMemo(
     () => ({
       isLoading: false,
-      isAuthenticated: session !== null,
+      isAuthenticated: true,
       fetchAccessToken: async ({
         forceRefreshToken,
       }: {
@@ -45,6 +45,7 @@ export default function Providers({
   children: ReactNode;
   session: Session | null;
 }) {
+  return children;
   return (
     <SessionProvider session={session}>
       <ConvexProviderWithAuth client={convex} useAuth={useAuth}>

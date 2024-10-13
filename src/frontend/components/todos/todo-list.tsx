@@ -1,6 +1,6 @@
 "use client";
 import { api } from "@/convex/_generated/api";
-import { useQuery } from "convex/react";
+import { useQuery } from "@/utils";
 import { Checkbox } from "../ui/checkbox";
 import Task from "./task";
 import { CircleCheckBig } from "lucide-react";
