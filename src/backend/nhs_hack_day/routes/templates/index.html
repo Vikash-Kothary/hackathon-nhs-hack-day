@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
+    <title>WardWise</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@latest/umd/material-ui.production.min.css">
     <link rel="stylesheet" href="/app/static/index.css">
 </head>
@@ -14,15 +14,19 @@
     </header>
     <main class="content">
         <section>
-            <h2>Hospitals:</h2>
+            <h2>Hospitals</h2>
             
             <ul class="c-list c-hospital-list">
-                <li><strong>Hospital 1</strong></li>
-                {% for hospital in hospitals %}
-                <li class="task-item">
-                    <strong>{{ hospital.name }}</strong>
+                <li class="c-list-item">
+                    <strong>Hospital ID:</strong> 001 <br>
+                    <strong>Hospital Name:</strong> General Hospital <br>
+                    <strong>User email:</strong> user@example.com <br>
+                    <strong>Blood add-on email:</strong> blood_support@hospital.com <br>
+                    <strong>Outpatient clinic booking email:</strong> outpatient_bookings@hospital.com <br>
+                    <strong>Gastroenterology email:</strong> gastro@hospital.com <br>
+                    <strong>Respiratory email:</strong> respiratory@hospital.com <br>
+                    <strong>Microbiology email:</strong> microbiology@hospital.com
                 </li>
-                {% endfor %}
             </ul>
         </section>
         <section>
@@ -30,7 +34,7 @@
             
             <ul class="c-list">
                 {% for task in tasks %}
-                <li class="task-item">
+                <li class="c-list-item">
                     <strong>{{ task.name }}</strong> - assigned to {{ task.assigned_user }}
                 </li>
                 {% endfor %}
