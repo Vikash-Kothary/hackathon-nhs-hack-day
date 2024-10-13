@@ -31,12 +31,15 @@ class Patient(BaseModel):
     patient_number: str
     full_name: str
 
+def task_type_to_string(x):
+    x['task_type'] = x['task_type'].value
+    return x
 
 @app.get("/app", response_class=HTMLResponse)
 async def read_root():
     template = env.get_template("index.html")
     users = user_repository.list_users()
-    tasks = task_repository.list_tasks()
+    tasks = list(map(task_type_to_string, task_repository.list_tasks()))
     return template.render(tasks=tasks, users=users)
 
 

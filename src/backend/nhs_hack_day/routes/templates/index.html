@@ -82,7 +82,8 @@
             <ul class="c-list">
                 {% for task in tasks %}
                 <li class="c-list-item">
-                    <strong>{{ task.name }}</strong> - assigned to {{ task.assigned_user }}
+                    <strong>{{ task.description }}</strong>
+                    <strong>{{ task.task_type }}</strong>
                 </li>
                 {% endfor %}
             </ul>
