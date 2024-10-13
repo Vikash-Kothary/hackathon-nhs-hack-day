@@ -7,5 +7,5 @@ def list_tasks():
 
 def create_new_task(task):
     global tasks
-    tasks[task.task_id] = task
+    tasks[task['task_id']] = task
     return task
