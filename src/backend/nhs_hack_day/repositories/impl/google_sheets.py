@@ -7,7 +7,7 @@ SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/au
 
 def get_google_sheets_client():
     # Add your service account key file here
-    creds = ServiceAccountCredentials.from_json_keyfile_name('config/secrets/credentials.json', SCOPE)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('config/secrets/service_credentials.json', SCOPE)
 
     # Authorize the gspread client
     client = gspread.authorize(creds)

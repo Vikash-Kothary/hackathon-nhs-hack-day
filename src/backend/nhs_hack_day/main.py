@@ -1,5 +1,8 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from jinja2 import Environment, FileSystemLoader
 
 from nhs_hack_day.repositories import user_repository
 from nhs_hack_day.repositories import task_repository
@@ -8,6 +11,9 @@ from nhs_hack_day.repositories import patient_repository
 app = FastAPI(
     docs_url="/"
 )
+app.mount("/static", StaticFiles(directory="src/backend/nhs_hack_day/routes/static"), name="static")
+
+env = Environment(loader=FileSystemLoader("src/backend/nhs_hack_day/routes/templates"))
 
 class User(BaseModel):
     user_id: str
@@ -26,6 +32,14 @@ class Patient(BaseModel):
     patient_id: str
     patient_number: str
     full_name: str
+
+
+@app.get("/app", response_class=HTMLResponse)
+async def read_root():
+    template = env.get_template("index.html")
+    users = user_repository.list_users()
+    tasks = task_repository.list_tasks()
+    return template.render(tasks=tasks, users=users)
 
 
 @app.get("/api/v1/users")
