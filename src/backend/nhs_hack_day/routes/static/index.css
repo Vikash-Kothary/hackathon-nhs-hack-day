@@ -1,26 +1,79 @@
+/* static/index.css */
 body {
     font-family: "Roboto", sans-serif;
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
 }
 
-.container {
+header {
+    width: 100%;
+    background-color: #1976d2;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
     width: 100%;
-    text-align: center;
 }
 
-h1, h2 {
+h2 {
+    font-size: 1.75rem;
     color: #333;
+    margin-top: 0;
+}
+
+.c-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.c-hospital-list {
+    margin-bottom: 40px;
+}
+
+.task-item {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
 }
 
 .form-group {
@@ -35,35 +88,39 @@ label {
 
 .input, .select {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
 .mui-button {
-    width: 100%;
     background-color: #1976d2;
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .mui-button:hover {
     background-color: #1565c0;
 }
 
-.task-list {
-    list-style-type: none;
-    padding: 0;
+@media (min-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    .form {
+        align-self: flex-end;
+    }
 }
 
-.task-item {
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}

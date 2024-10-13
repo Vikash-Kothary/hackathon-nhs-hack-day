@@ -11,7 +11,7 @@ from nhs_hack_day.repositories import patient_repository
 app = FastAPI(
     docs_url="/"
 )
-app.mount("/static", StaticFiles(directory="src/backend/nhs_hack_day/routes/static"), name="static")
+app.mount("/app/static", StaticFiles(directory="src/backend/nhs_hack_day/routes/static"), name="static")
 
 env = Environment(loader=FileSystemLoader("src/backend/nhs_hack_day/routes/templates"))
 
