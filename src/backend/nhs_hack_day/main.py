@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from jinja2 import Environment, FileSystemLoader
 
+from nhs_hack_day.models import TaskType
 from nhs_hack_day.services import task_service
 from nhs_hack_day.repositories import user_repository
 from nhs_hack_day.repositories import task_repository
@@ -33,6 +34,7 @@ class Patient(BaseModel):
 
 
 def task_type_to_string(x):
+    x['task_type'] = str(x.get('task_type', TaskType.UNKNOWN))
     return x
 
 

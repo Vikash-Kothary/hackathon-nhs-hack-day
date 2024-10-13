@@ -85,7 +85,9 @@
                     <strong>{{ task.description }}</strong> <br>
                     <strong>Task Id:</strong> {{ task.task_id }}</br>
                     <strong>Task Type:</strong> {{ task.task_type }}<br>
-                    <strong>Speciality:</strong> {{ task.speciality }}<br>
+                    {% if task.task_type != 'Unknown' %}
+                    <button class="mui-button" onclick="automateTask('{{ task.task_id }}')">Automate Task</button>
+                    {% endif %}
                 </li>
                 {% endfor %}
             </ul>
@@ -131,6 +133,24 @@
                 alert('An unexpected error occurred.');
             }
         });
+
+        async function automateTask(taskId) {
+            try {
+                const response = await fetch(`http://localhost:8000/api/v1/tasks/${taskId}/automate`, {
+                    method: 'POST',
+                });
+
+                if (response.ok) {
+                    alert('Task automated successfully.');
+                    // Optionally refresh the task list or update UI
+                } else {
+                    alert('Error automating task.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An unexpected error occurred.');
+            }
+        }
     </script>
 </body>
 </html>

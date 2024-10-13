@@ -9,3 +9,6 @@ class TaskType(Enum):
     REFER_OUTPATIENT_CLINIC = "Refer to outpatient clinic"
     DECIDE_ON_PRESCRIPTION = "Decide on prescription"
     UNKNOWN = "Unknown"
+
+    def __str__(self):
+        return str(self.value)
