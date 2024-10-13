@@ -31,9 +31,11 @@ class Patient(BaseModel):
     patient_number: str
     full_name: str
 
+
 def task_type_to_string(x):
-    x['task_type'] = x['task_type'].value
+    x['task_type'] = x.get('task_type', 'UNKNONN')
     return x
+
 
 @app.get("/app", response_class=HTMLResponse)
 async def read_root():
