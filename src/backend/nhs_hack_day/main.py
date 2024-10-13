@@ -33,7 +33,6 @@ class Patient(BaseModel):
 
 
 def task_type_to_string(x):
-    x['task_type'] = x.get('task_type', 'UNKNONN')
     return x
 
 

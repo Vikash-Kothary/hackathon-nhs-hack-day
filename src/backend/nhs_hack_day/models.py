@@ -1,6 +1,6 @@
 from enum import Enum
 
-class TaskType(Enum):
+class Speciality(Enum):
     UNKNOWN = "Unknown"
     RESPIRATORY_MEDICINE = "Respiratory medicine"
     GASTROENTEROLOGY = "Gastroenterology"
