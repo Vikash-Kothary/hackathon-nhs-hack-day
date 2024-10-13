@@ -6,6 +6,7 @@ from jinja2 import Environment, FileSystemLoader
 
 from nhs_hack_day.models import TaskType
 from nhs_hack_day.services import task_service
+from nhs_hack_day.services import automate_service
 from nhs_hack_day.repositories import user_repository
 from nhs_hack_day.repositories import task_repository
 from nhs_hack_day.repositories import patient_repository
@@ -67,6 +68,12 @@ def create_new_task(task: Task):
     new_task = task_service.create_new_task(task.description)
     return new_task['task_id']
 
+
+@app.post("/api/v1/tasks/{task_id}/automate")
+async def automate_task(task_id: str):
+    task = task_repository.get_task_by_id(task_id)
+    if (task['task_type'] == TaskType.ADD_ON_BLOODS_TEST):
+        automate_service.automate_blood_tests(task)
 
 @app.get("/api/v1/patients")
 def list_patients():
